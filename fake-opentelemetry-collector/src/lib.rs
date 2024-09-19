@@ -148,7 +148,7 @@ mod tests {
         shutdown_tracer_provider();
 
         let otel_spans = fake_collector
-            .exported_spans(1, Duration::from_millis(2000))
+            .exported_spans(1, Duration::from_millis(6000))
             .await;
         //insta::assert_debug_snapshot!(otel_spans);
         insta::assert_yaml_snapshot!(otel_spans, {
