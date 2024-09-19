@@ -23,24 +23,24 @@ rust-version = "1.80.0"
 
 [workspace.dependencies]
 http = "^1"
-opentelemetry = { version = "0.24", features = [
+opentelemetry = { version = "0.25", features = [
   "trace",
 ], default-features = false }
-opentelemetry_sdk = { version = "0.24.1", default-features = false, features = [
+opentelemetry_sdk = { version = "0.25", default-features = false, features = [
   "rt-tokio",
 ] }
 opentelemetry-aws = { version = "0.12", default-features = false }
 opentelemetry-jaeger = { version = "0.22", default-features = false }
-opentelemetry-jaeger-propagator = { version = "0.3", default-features = false }
-opentelemetry-resource-detectors = { version = "0.3", default-features = false }
-opentelemetry-semantic-conventions = { version = "0.16", default-features = false }
-opentelemetry-zipkin = { version = "0.22", default-features = false }
-opentelemetry-otlp = { version = "0.17", default-features = false }
-opentelemetry-proto = { version = "0.7", default-features = false }
-opentelemetry-stdout = { version = "0.5" }
+opentelemetry-jaeger-propagator = { version = "0.25", default-features = false }
+opentelemetry-resource-detectors = { version = "0.4", default-features = false }
+opentelemetry-semantic-conventions = { version = "0.25", default-features = false }
+opentelemetry-zipkin = { version = "0.25", default-features = false }
+opentelemetry-otlp = { version = "0.25", default-features = false }
+opentelemetry-proto = { version = "0.25", default-features = false }
+opentelemetry-stdout = { version = "0.25" }
 tonic = { version = "0.12", default-features = false } #should be sync with opentelemetry-proto
 tracing = "0.1"
-tracing-opentelemetry = "0.25"
+tracing-opentelemetry = "0.26"
 
 [profile.dev.package.insta]
 opt-level = 3
@@ -53,3 +53,7 @@ pre-release-commit-message = "🚀 (cargo-release) version {{version}}"
 tag-prefix = ""
 tag-name = "{{prefix}}{{version}}"
 tag-message = "🔖 {{version}}"
+
+[patch.crates-io]
+# opentelemetry-resource-detectors v0.4 is published
+opentelemetry-resource-detectors = { git = "https://github.com/open-telemetry/opentelemetry-rust-contrib", rev = "281c215b46ac5730f76dd017016c3bb56b97dc4f" }

@@ -11,7 +11,7 @@ init-tracing-opentelemetry = { path = "../../init-tracing-opentelemetry", featur
   "otlp",
   "tracing_subscriber_ext",
 ] }
-opentelemetry = "0.24"
+opentelemetry = "0.25"
 opentelemetry-otlp = { version = "*", default-features = false, features = [
   "reqwest-client",
   "reqwest-rustls",
